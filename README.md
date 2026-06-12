@@ -5,21 +5,16 @@
 ## Install (macOS)
 
 ```bash
-brew install --cask --no-quarantine rymera-web-co/gamut/gamut
+brew install --cask rymera-web-co/gamut/gamut
+xattr -dr com.apple.quarantine /Applications/Gamut.app
 ```
 
-The `--no-quarantine` flag is required: Gamut isn't yet signed/notarized, and Homebrew quarantines downloaded apps by default, which trips Gatekeeper's "damaged app" block on an unsigned build. The flag tells Homebrew to skip the quarantine attribute so the app launches normally.
+Gamut isn't yet signed/notarized, and Homebrew quarantines downloaded apps (Homebrew 6 removed the `--no-quarantine` opt-out). So on first launch Gatekeeper reports *"Gamut is damaged and can't be opened"* — it isn't damaged; the `xattr` command clears the quarantine flag once so it launches normally. `brew install` also prints this command as a caveat.
 
 After the first install you can refer to the cask as just `gamut`:
 
 ```bash
 brew upgrade --cask gamut
-```
-
-Already installed without the flag? Clear quarantine on the installed app once:
-
-```bash
-xattr -dr com.apple.quarantine /Applications/Gamut.app
 ```
 
 ## Maintenance
