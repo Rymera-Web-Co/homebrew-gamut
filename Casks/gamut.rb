@@ -12,9 +12,11 @@ cask "gamut" do
   desc "Local git desktop app for reviewing changes and browsing history"
   homepage "https://github.com/Rymera-Web-Co/Gamut"
 
-  # Matches LSMinimumSystemVersion in the app's Info.plist (Tauri default).
-  # A bare symbol is the minimum-version form in the cask DSL.
-  depends_on macos: :high_sierra
+  # No macOS minimum is declared. The app's real floor is 10.13 (High Sierra,
+  # per its Info.plist), but Homebrew has dropped that symbol -- the oldest it
+  # still accepts is :catalina, which would falsely gate out valid older-macOS
+  # users. Modern Homebrew can't run on pre-Catalina anyway, so omitting the
+  # gate is both more accurate and lower-maintenance than asserting a wrong one.
 
   app "Gamut.app"
 
