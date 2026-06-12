@@ -7,11 +7,14 @@ cask "gamut" do
   sha256 arm:   "7424d9ab5c35cecd21a7df933b89fd1e05019f6c2f86344d7b6650c4343c711e",
          intel: "d2815461a8ad071aace31f49eebe679f4a570a356901171e7d7b2f64f49d1742"
 
-  url "https://github.com/Rymera-Web-Co/Gamut/releases/download/#{version.csv.second}/Gamut_#{version.csv.first}_#{arch}.dmg",
-      verified: "github.com/Rymera-Web-Co/Gamut/"
+  url "https://github.com/Rymera-Web-Co/Gamut/releases/download/#{version.csv.second}/Gamut_#{version.csv.first}_#{arch}.dmg"
   name "Gamut"
   desc "Local git desktop app for reviewing changes and browsing history"
   homepage "https://github.com/Rymera-Web-Co/Gamut"
+
+  # Matches LSMinimumSystemVersion in the app's Info.plist (Tauri default).
+  # A bare symbol is the minimum-version form in the cask DSL.
+  depends_on macos: :high_sierra
 
   app "Gamut.app"
 
