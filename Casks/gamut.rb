@@ -3,9 +3,9 @@ cask "gamut" do
 
   # version is "<app-version>,<release-tag>": the .dmg filename uses the app
   # version while the release URL uses the tag, and the two are decoupled.
-  version "0.4.0,v0.4.0"
-  sha256 arm:   "e497aa07b8d639209d6833c79ddbb6e2cbc20bacd3f16739d95a07c631061b84",
-         intel: "371ae1a3ecbb364705c0cda6356642405fd6cf70f20086fce1df73a2e9c197bb"
+  version "0.5.0,v0.5.0"
+  sha256 arm:   "7263f7900982e76782c4802cc6e6bca5c83b9672434b09558ba0eaf115bbdc45",
+         intel: "c57555505fbe589bbf7e78ff49c5649c8233773c21177460f3e7774445fdd170"
 
   url "https://github.com/Rymera-Web-Co/Gamut/releases/download/#{version.csv.second}/Gamut_#{version.csv.first}_#{arch}.dmg"
   name "Gamut"
